@@ -7,6 +7,12 @@ run:
 
 help:
 	go run api/services/sales/main.go --help
+
+curl-ready:
+	curl -i http://localhost:3000/readiness
+
+curl-live:
+	curl -i http://localhost:3000/liveness
 # ==============================================================================
 # Define dependencies
 
