@@ -12,9 +12,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/DimaMaimesko/ultimate-go-service/api/services/debug"
+	"github.com/DimaMaimesko/ultimate-go-service/api/services/api/debug"
 	"github.com/DimaMaimesko/ultimate-go-service/api/services/sales/mux"
 	"github.com/DimaMaimesko/ultimate-go-service/foundation/logger"
+	"github.com/DimaMaimesko/ultimate-go-service/foundation/web"
 	"github.com/ardanlabs/conf/v3"
 )
 
@@ -30,7 +31,7 @@ func main() {
 	}
 
 	traceIDFn := func(ctx context.Context) string {
-		return ""
+		return web.GetTraceID(ctx)
 	}
 
 	log = logger.NewWithEvents(os.Stdout, logger.LevelInfo, "SALES", traceIDFn, events)

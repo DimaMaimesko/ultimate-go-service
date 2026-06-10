@@ -3,8 +3,8 @@ package mux
 import (
 	"os"
 
+	"github.com/DimaMaimesko/ultimate-go-service/api/services/api/mid"
 	"github.com/DimaMaimesko/ultimate-go-service/api/services/sales/route/sys/checkapi"
-	"github.com/DimaMaimesko/ultimate-go-service/app/api/mid"
 	"github.com/DimaMaimesko/ultimate-go-service/foundation/logger"
 	"github.com/DimaMaimesko/ultimate-go-service/foundation/web"
 )
