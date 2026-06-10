@@ -13,6 +13,9 @@ curl-ready:
 
 curl-live:
 	curl -i http://localhost:3000/liveness
+
+curl-error:
+	curl -il -X GET http://localhost:3000/testerror
 # ==============================================================================
 # Define dependencies
 
