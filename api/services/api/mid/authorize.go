@@ -4,20 +4,21 @@ import (
 	"context"
 	"net/http"
 
+	"github.com/DimaMaimesko/ultimate-go-service/app/api/authclient"
 	"github.com/DimaMaimesko/ultimate-go-service/app/api/mid"
-	"github.com/DimaMaimesko/ultimate-go-service/business/api/auth"
+	"github.com/DimaMaimesko/ultimate-go-service/foundation/logger"
 	"github.com/DimaMaimesko/ultimate-go-service/foundation/web"
 )
 
-// Authorize executes the authorize middleware functionality.
-func Authorize(auth *auth.Auth, rule string) web.MidHandler {
+// AuthorizeService executes the authorize middleware functionality.
+func AuthorizeService(log *logger.Logger, client *authclient.Client, rule string) web.MidHandler {
 	m := func(handler web.Handler) web.Handler {
 		h := func(ctx context.Context, w http.ResponseWriter, r *http.Request) error {
 			hdl := func(ctx context.Context) error {
 				return handler(ctx, w, r)
 			}
 
-			return mid.Authorize(ctx, auth, rule, hdl)
+			return mid.AuthorizeService(ctx, log, client, rule, hdl)
 		}
 
 		return h
