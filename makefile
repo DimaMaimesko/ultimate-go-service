@@ -195,6 +195,14 @@ metrics-view-sc:
 statsviz:
 	$(OPEN_CMD) http://localhost:3010/debug/statsviz
 # ==============================================================================
+# Administration
+
+pgcli:
+	pgcli postgresql://postgres:postgres@localhost
+
+# ==============================================================================
+
+# ==============================================================================
 # Modules support
 tidy:
 	go mod tidy
